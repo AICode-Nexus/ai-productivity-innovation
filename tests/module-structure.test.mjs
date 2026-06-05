@@ -289,9 +289,16 @@ test("build output cache busts CSS and module entry assets", async () => {
 
   const distHtml = await read("dist/index.html");
   const distCss = await read("dist/styles.css");
+  const distMain = await read("dist/src/main.js");
+  const distTrend = await read("dist/src/modules/trend.js");
+  const distCopy = await read("dist/src/modules/copy.js");
 
   assert.match(distHtml, /href="\.\/styles\.css\?v=1234567890ab"/);
   assert.match(distHtml, /src="\.\/src\/main\.js\?v=1234567890ab"/);
+  assert.match(distMain, /from "\.\/modules\/theme\.js\?v=1234567890ab"/);
+  assert.match(distTrend, /from "\.\.\/data\/trends\.js\?v=1234567890ab"/);
+  assert.match(distCopy, /from "\.\/roadmap\.js\?v=1234567890ab"/);
+  assert.doesNotMatch(distMain, /from "\.\/modules\/theme\.js";/);
 
   for (const stylesheet of [
     "base.css",
