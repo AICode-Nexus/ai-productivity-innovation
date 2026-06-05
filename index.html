@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="企业 AI 提效与创新互动分享站：国内外趋势、提效地图、案例、提示词模板和 90 天落地路线图。"
+    />
+    <title>企业 AI 提效与创新互动分享站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" id="top">
+        <a class="brand" href="#top" aria-label="返回顶部">
+          <img class="brand-mark" src="./assets/favicon.svg" alt="" width="32" height="32" />
+          <span>AI Productivity</span>
+        </a>
+        <nav class="nav-links" aria-label="页面导航">
+          <a href="#trend">趋势判断</a>
+          <a href="#map">提效地图</a>
+          <a href="#innovation">创新路径</a>
+          <a href="#cases">行业案例</a>
+          <a href="#tools">互动工具</a>
+          <a href="#action">行动清单</a>
+        </nav>
+        <button class="mode-toggle" type="button" id="present-toggle" aria-pressed="false">
+          投屏模式
+        </button>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+          <div class="hero-shade"></div>
+          <div class="hero-content reveal">
+            <p class="eyebrow">企业 AI 提效与创新 · 互动分享站</p>
+            <h1 id="hero-title">从个人提效，走向组织级创新。</h1>
+            <p class="hero-copy">
+              一套面向管理者和业务团队的半天分享内容：先看国内外 AI 提效发展，再把 AI 落到岗位、流程、质量标准和 90 天行动。
+            </p>
+            <div class="hero-actions">
+              <a class="primary-action" href="#tools">开始互动工具</a>
+              <a class="secondary-action" href="#trend">查看趋势主线</a>
+            </div>
+          </div>
+          <aside class="hero-signal reveal" aria-label="分享节奏">
+            <div>
+              <span class="signal-number">6</span>
+              <span class="signal-label">章节主线</span>
+            </div>
+            <div>
+              <span class="signal-number">4</span>
+              <span class="signal-label">现场工具</span>
+            </div>
+            <div>
+              <span class="signal-number">90</span>
+              <span class="signal-label">天落地路线</span>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section intro reveal" aria-labelledby="intro-title">
+          <p class="section-kicker">Core Thesis</p>
+          <div class="intro-grid">
+            <h2 id="intro-title">AI 的下一轮红利，不在“多用几个工具”，而在“重写工作方式”。</h2>
+            <p>
+              个人已经能用 AI 写、查、算、画、总结；企业真正的分水岭，是把这些能力嵌入流程，明确输入、输出、质检、责任和复盘，让 AI 从个人助手变成组织能力。
+            </p>
+          </div>
+        </section>
+
+        <section class="section reveal" id="trend" aria-labelledby="trend-title">
+          <div class="section-heading">
+            <p class="section-kicker">Trend</p>
+            <h2 id="trend-title">国内外 AI 提效发展的共同信号</h2>
+            <p>海外正在从 Copilot 走向 Agent 和组织重构；国内正在从模型能力、行业试点走向场景落地和流程改造。</p>
+          </div>
+          <div class="trend-layout">
+            <div class="trend-track">
+              <button class="trend-step active" type="button" data-trend="individual">
+                <span>01</span>
+                <strong>个人效率普及</strong>
+                <em>写作、检索、分析、内容生产</em>
+              </button>
+              <button class="trend-step" type="button" data-trend="workflow">
+                <span>02</span>
+                <strong>流程嵌入</strong>
+                <em>岗位 SOP、知识库、质量标准</em>
+              </button>
+              <button class="trend-step" type="button" data-trend="agent">
+                <span>03</span>
+                <strong>Agent 协作</strong>
+                <em>任务拆解、工具调用、人机交接</em>
+              </button>
+              <button class="trend-step" type="button" data-trend="organization">
+                <span>04</span>
+                <strong>组织重构</strong>
+                <em>管理机制、能力模型、评估体系</em>
+              </button>
+            </div>
+            <div class="trend-detail" id="trend-detail" aria-live="polite"></div>
+          </div>
+          <div class="source-strip" aria-label="趋势来源">
+            <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noreferrer">Microsoft WTI 2026</a>
+            <a href="https://www.gallup.com/699797/indicator-artificial-intelligence.aspx" target="_blank" rel="noreferrer">Gallup AI Indicator</a>
+            <a href="https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf" target="_blank" rel="noreferrer">Stanford AI Index 2026</a>
+            <a href="https://www.caict.ac.cn/kxyj/qwfb/ztbg/202501/P020250103478870154671.pdf" target="_blank" rel="noreferrer">中国信通院行业报告</a>
+          </div>
+        </section>
+
+        <section class="section dark-band reveal" id="map" aria-labelledby="map-title">
+          <div class="section-heading">
+            <p class="section-kicker">Productivity Map</p>
+            <h2 id="map-title">企业 AI 提效地图：六类岗位，四层能力</h2>
+            <p>先找高频、重复、规则清楚、材料可获得的工作，再逐步把 AI 纳入流程。</p>
+          </div>
+          <div class="matrix-wrap" role="region" aria-label="企业 AI 提效矩阵" tabindex="0">
+            <table class="efficiency-matrix">
+              <thead>
+                <tr>
+                  <th scope="col">岗位</th>
+                  <th scope="col">内容生成</th>
+                  <th scope="col">知识检索</th>
+                  <th scope="col">流程自动化</th>
+                  <th scope="col">决策辅助</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">销售</th>
+                  <td>客户画像、跟进文案</td>
+                  <td>竞品资料、行业话术</td>
+                  <td>线索分层、回访提醒</td>
+                  <td>成交概率、异议策略</td>
+                </tr>
+                <tr>
+                  <th scope="row">客服</th>
+                  <td>回复模板、工单摘要</td>
+                  <td>知识库问答、政策查询</td>
+                  <td>工单分派、升级触发</td>
+                  <td>风险预警、满意度洞察</td>
+                </tr>
+                <tr>
+                  <th scope="row">运营</th>
+                  <td>活动方案、社群内容</td>
+                  <td>用户反馈、市场趋势</td>
+                  <td>活动排期、数据看板</td>
+                  <td>增长假设、复盘建议</td>
+                </tr>
+                <tr>
+                  <th scope="row">人力</th>
+                  <td>JD、面试题、培训材料</td>
+                  <td>制度问答、岗位知识</td>
+                  <td>入职流程、学习路径</td>
+                  <td>人才画像、组织诊断</td>
+                </tr>
+                <tr>
+                  <th scope="row">研发/产品</th>
+                  <td>PRD、原型说明、测试用例</td>
+                  <td>需求检索、技术调研</td>
+                  <td>任务拆解、评审清单</td>
+                  <td>优先级、风险和方案权衡</td>
+                </tr>
+                <tr>
+                  <th scope="row">管理</th>
+                  <td>会议纪要、经营简报</td>
+                  <td>指标解释、政策跟踪</td>
+                  <td>例会节奏、目标追踪</td>
+                  <td>经营洞察、资源配置</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section reveal" id="innovation" aria-labelledby="innovation-title">
+          <div class="section-heading">
+            <p class="section-kicker">Innovation Path</p>
+            <h2 id="innovation-title">创新不是换工具，是重做小流程</h2>
+            <p>把一个业务动作拆成输入、处理、输出、质检和复盘，AI 才能稳定地产生价值。</p>
+          </div>
+          <div class="pathway">
+            <button class="path-node active" type="button" data-path="input">输入标准化</button>
+            <button class="path-node" type="button" data-path="process">处理自动化</button>
+            <button class="path-node" type="button" data-path="quality">质量可评估</button>
+            <button class="path-node" type="button" data-path="handoff">人机可交接</button>
+            <button class="path-node" type="button" data-path="loop">复盘可迭代</button>
+          </div>
+          <div class="path-detail" id="path-detail" aria-live="polite"></div>
+        </section>
+
+        <section class="section reveal" id="cases" aria-labelledby="cases-title">
+          <div class="section-heading">
+            <p class="section-kicker">Cases</p>
+            <h2 id="cases-title">泛企业案例：从一个切入点开始</h2>
+            <p>不要第一天就建设“大平台”。先选一个能被验证的流程，把收益、风险和责任讲清楚。</p>
+          </div>
+          <div class="case-grid">
+            <article class="case-item">
+              <span>销售增长</span>
+              <h3>线索到成交的 AI 作战台</h3>
+              <p>AI 根据线索来源、客户行业和历史互动生成跟进优先级、话术、异议处理和下一步动作。</p>
+            </article>
+            <article class="case-item">
+              <span>客服体验</span>
+              <h3>知识库 + 工单摘要</h3>
+              <p>先让 AI 做“查得快、写得准、交接清”，再逐步把高频问题沉淀成标准回复和质检规则。</p>
+            </article>
+            <article class="case-item">
+              <span>运营效率</span>
+              <h3>活动复盘自动化</h3>
+              <p>活动结束后自动汇总数据、反馈和内容表现，输出下一轮假设、风险和改进清单。</p>
+            </article>
+            <article class="case-item">
+              <span>研发产品</span>
+              <h3>需求到测试的连续上下文</h3>
+              <p>AI 帮团队把需求、验收标准、风险点、测试用例和发布说明连成一条可追踪链路。</p>
+            </article>
+            <article class="case-item">
+              <span>人力组织</span>
+              <h3>新人培养路径</h3>
+              <p>把岗位 SOP、案例、考核标准和练习题组织成 AI 教练，缩短从入职到独立上手的周期。</p>
+            </article>
+            <article class="case-item">
+              <span>渠道样本</span>
+              <h3>门店经营提效</h3>
+              <p>调研样本显示，渠道伙伴最想用 AI 改善获客、内容、导购话术和复购，适合作为现场行业样板。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section tools-section reveal" id="tools" aria-labelledby="tools-title">
+          <div class="section-heading">
+            <p class="section-kicker">Interactive Toolkit</p>
+            <h2 id="tools-title">现场互动工具箱</h2>
+            <p>所有结果只在浏览器本地生成，不提交、不存储、不调用外部 AI。</p>
+          </div>
+
+          <div class="tool-panel" id="maturity-tool">
+            <div class="tool-header">
+              <span>01</span>
+              <div>
+                <h3>AI 提效成熟度自测</h3>
+                <p>回答 6 个问题，判断企业当前处在什么阶段。</p>
+              </div>
+            </div>
+            <form class="quiz-form" id="maturity-form">
+              <fieldset>
+                <legend>1. 团队使用 AI 的频率</legend>
+                <label><input type="radio" name="usage" value="0" checked /> 零散尝试，主要靠个人兴趣</label>
+                <label><input type="radio" name="usage" value="1" /> 关键岗位每周使用</label>
+                <label><input type="radio" name="usage" value="2" /> 已嵌入多个日常流程</label>
+                <label><input type="radio" name="usage" value="3" /> 有可复用的 Agent 或自动化工作流</label>
+              </fieldset>
+              <fieldset>
+                <legend>2. 是否有明确场景清单</legend>
+                <label><input type="radio" name="scenarios" value="0" checked /> 没有，想到哪用到哪</label>
+                <label><input type="radio" name="scenarios" value="1" /> 有少量个人模板</label>
+                <label><input type="radio" name="scenarios" value="2" /> 有岗位级场景和流程说明</label>
+                <label><input type="radio" name="scenarios" value="3" /> 有业务目标、责任人和指标</label>
+              </fieldset>
+              <fieldset>
+                <legend>3. 知识和数据准备</legend>
+                <label><input type="radio" name="data" value="0" checked /> 文档分散，靠人找</label>
+                <label><input type="radio" name="data" value="1" /> 有共享资料夹或知识库</label>
+                <label><input type="radio" name="data" value="2" /> 已梳理关键知识和权限</label>
+                <label><input type="radio" name="data" value="3" /> 可按任务调用可信知识源</label>
+              </fieldset>
+              <fieldset>
+                <legend>4. 质量标准</legend>
+                <label><input type="radio" name="quality" value="0" checked /> 结果靠经验判断</label>
+                <label><input type="radio" name="quality" value="1" /> 有少量示例和人工审核</label>
+                <label><input type="radio" name="quality" value="2" /> 有输出标准和检查清单</label>
+                <label><input type="radio" name="quality" value="3" /> 有自动评估、人审和复盘机制</label>
+              </fieldset>
+              <fieldset>
+                <legend>5. 管理支持</legend>
+                <label><input type="radio" name="manager" value="0" checked /> 没有明确支持</label>
+                <label><input type="radio" name="manager" value="1" /> 鼓励尝试，但不进入目标</label>
+                <label><input type="radio" name="manager" value="2" /> 有试点目标和负责人</label>
+                <label><input type="radio" name="manager" value="3" /> 纳入组织能力和绩效讨论</label>
+              </fieldset>
+              <fieldset>
+                <legend>6. 工作流集成</legend>
+                <label><input type="radio" name="workflow" value="0" checked /> 只在聊天框里使用</label>
+                <label><input type="radio" name="workflow" value="1" /> 复制粘贴到现有工具</label>
+                <label><input type="radio" name="workflow" value="2" /> 与表格、文档、CRM、工单等工具配合</label>
+                <label><input type="radio" name="workflow" value="3" /> 能自动触发、跟踪和交接任务</label>
+              </fieldset>
+            </form>
+            <div class="result-box" id="maturity-result" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-panel" id="role-tool">
+            <div class="tool-header">
+              <span>02</span>
+              <div>
+                <h3>岗位场景选择器</h3>
+                <p>选择岗位，快速定位最适合先做的 AI 提效动作。</p>
+              </div>
+            </div>
+            <div class="role-tabs" id="role-tabs" role="tablist" aria-label="岗位选择">
+              <button class="active" type="button" data-role="sales">销售</button>
+              <button type="button" data-role="service">客服</button>
+              <button type="button" data-role="ops">运营</button>
+              <button type="button" data-role="hr">人力</button>
+              <button type="button" data-role="product">研发/产品</button>
+              <button type="button" data-role="management">管理</button>
+            </div>
+            <div class="role-output" id="role-output" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-panel" id="prompt-tool">
+            <div class="tool-header">
+              <span>03</span>
+              <div>
+                <h3>提示词模板生成器</h3>
+                <p>把业务任务变成可复制的高质量 prompt。</p>
+              </div>
+            </div>
+            <form class="prompt-form" id="prompt-form">
+              <label>
+                岗位/角色
+                <select name="role">
+                  <option>销售负责人</option>
+                  <option>客服主管</option>
+                  <option>运营经理</option>
+                  <option>人力负责人</option>
+                  <option>产品经理</option>
+                  <option>总经理/业务负责人</option>
+                </select>
+              </label>
+              <label>
+                任务
+                <input name="task" type="text" value="为下周客户跟进生成分层话术" />
+              </label>
+              <label>
+                输入材料
+                <textarea name="material" rows="4">客户来源、历史沟通记录、产品卖点、常见异议、目标转化动作</textarea>
+              </label>
+              <label>
+                质量标准
+                <textarea name="standard" rows="4">语言具体，能直接执行；输出分层策略；标出风险和需要人工确认的信息</textarea>
+              </label>
+            </form>
+            <div class="prompt-output-wrap">
+              <pre id="prompt-output" tabindex="0"></pre>
+              <button class="copy-button" type="button" data-copy-target="prompt-output">复制提示词</button>
+            </div>
+          </div>
+
+          <div class="tool-panel" id="roadmap-tool">
+            <div class="tool-header">
+              <span>04</span>
+              <div>
+                <h3>90 天落地路线图</h3>
+                <p>选择当前阶段，生成可执行的推进节奏。</p>
+              </div>
+            </div>
+            <div class="roadmap-controls">
+              <label>
+                当前阶段
+                <select id="roadmap-stage">
+                  <option value="starter">工具尝鲜</option>
+                  <option value="workflow">流程嵌入</option>
+                  <option value="agent">Agent 协作</option>
+                  <option value="org">组织重构</option>
+                </select>
+              </label>
+              <button class="secondary-action small-action" type="button" id="roadmap-copy">复制路线图</button>
+            </div>
+            <div class="roadmap-output" id="roadmap-output" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <section class="section reveal" id="action" aria-labelledby="action-title">
+          <div class="section-heading">
+            <p class="section-kicker">Action</p>
+            <h2 id="action-title">从明天开始的三件事</h2>
+            <p>不要等“大模型战略”完整成型，先让一个真实流程跑起来。</p>
+          </div>
+          <div class="action-list">
+            <article>
+              <span>01</span>
+              <h3>选一个流程</h3>
+              <p>从高频、重复、可评价的工作开始，例如客户跟进、工单摘要、活动复盘、会议纪要。</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>定义质量标准</h3>
+              <p>明确输入材料、输出格式、不可出错的边界、人工审核点和成功指标。</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>做一次复盘</h3>
+              <p>记录节省时间、返工原因、员工使用阻力和客户/业务结果，再决定是否扩大试点。</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>企业 AI 提效与创新互动分享站 · AICode-Nexus</p>
+        <a href="#top">回到顶部</a>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./main.js"></script>
+  </body>
+</html>
