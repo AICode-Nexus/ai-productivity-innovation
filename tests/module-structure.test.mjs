@@ -3,6 +3,8 @@ import { spawnSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 
+const themeStorageKey = "ai-productivity-theme-v2";
+
 const requiredFiles = [
   "server.mjs",
   "src/main.js",
@@ -92,9 +94,11 @@ test("header exposes an accessible sun and moon theme icon button", async () => 
   const layoutCss = await read("styles/layout.css");
   const baseCss = await read("styles/base.css");
 
+  assert.match(html, /<html lang="zh-CN" data-theme="dark">/);
   assert.match(html, /class="theme-toggle"/);
   assert.match(html, /id="theme-toggle"/);
-  assert.match(html, /aria-label="切换到黑色主题"/);
+  assert.match(html, /aria-label="切换到白色主题"/);
+  assert.match(html, /aria-pressed="true"/);
   assert.match(html, /data-theme-toggle/);
   assert.match(html, /class="lucide lucide-sun theme-icon theme-icon-sun"/);
   assert.match(html, /class="lucide lucide-moon theme-icon theme-icon-moon"/);
@@ -107,6 +111,31 @@ test("header exposes an accessible sun and moon theme icon button", async () => 
   assert.match(layoutCss, /\.theme-toggle\s*{[^}]*background:\s*transparent/s);
   assert.match(baseCss, /:root\[data-theme="dark"\]/);
   assert.match(baseCss, /:root\[data-theme="light"\]/);
+});
+
+test("theme module defaults to black regardless of system color preference", async () => {
+  const { setupTheme } = await import("../src/modules/theme.js");
+  const previousDocument = globalThis.document;
+  const previousWindow = globalThis.window;
+  const previousLocalStorage = globalThis.localStorage;
+  const harness = createThemeHarness(null, { prefersLight: true });
+
+  globalThis.document = harness.document;
+  globalThis.window = harness.window;
+  globalThis.localStorage = harness.localStorage;
+
+  try {
+    setupTheme();
+
+    assert.equal(harness.document.documentElement.dataset.theme, "dark");
+    assert.equal(harness.toggle.getAttribute("aria-pressed"), "true");
+    assert.equal(harness.toggle.getAttribute("aria-label"), "切换到白色主题");
+    assert.equal(harness.localStorage.getItem(themeStorageKey), null);
+  } finally {
+    globalThis.document = previousDocument;
+    globalThis.window = previousWindow;
+    globalThis.localStorage = previousLocalStorage;
+  }
 });
 
 test("theme module toggles and persists black and white theme choices", async () => {
@@ -130,14 +159,14 @@ test("theme module toggles and persists black and white theme choices", async ()
     harness.toggle.click();
 
     assert.equal(harness.document.documentElement.dataset.theme, "dark");
-    assert.equal(harness.localStorage.getItem("ai-productivity-theme"), "dark");
+    assert.equal(harness.localStorage.getItem(themeStorageKey), "dark");
     assert.equal(harness.toggle.getAttribute("aria-pressed"), "true");
     assert.equal(harness.toggle.getAttribute("aria-label"), "切换到白色主题");
 
     harness.toggle.click();
 
     assert.equal(harness.document.documentElement.dataset.theme, "light");
-    assert.equal(harness.localStorage.getItem("ai-productivity-theme"), "light");
+    assert.equal(harness.localStorage.getItem(themeStorageKey), "light");
     assert.equal(harness.toggle.getAttribute("aria-pressed"), "false");
   } finally {
     globalThis.document = previousDocument;
@@ -146,8 +175,11 @@ test("theme module toggles and persists black and white theme choices", async ()
   }
 });
 
-function createThemeHarness(storedTheme) {
-  const store = new Map([["ai-productivity-theme", storedTheme]]);
+function createThemeHarness(storedTheme, options = {}) {
+  const store = new Map();
+  if (storedTheme) {
+    store.set(themeStorageKey, storedTheme);
+  }
   const toggle = createThemeToggle();
 
   return {
@@ -169,7 +201,7 @@ function createThemeHarness(storedTheme) {
     window: {
       matchMedia() {
         return {
-          matches: false,
+          matches: options.prefersLight ?? false,
           addEventListener() {},
           removeEventListener() {},
         };

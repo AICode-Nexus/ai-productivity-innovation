@@ -1,4 +1,4 @@
-const THEME_STORAGE_KEY = "ai-productivity-theme";
+const THEME_STORAGE_KEY = "ai-productivity-theme-v2";
 const themes = new Set(["dark", "light"]);
 
 function getStoredTheme() {
@@ -20,10 +20,6 @@ function storeTheme(theme) {
 function getPreferredTheme() {
   const storedTheme = getStoredTheme();
   if (themes.has(storedTheme)) return storedTheme;
-
-  if (window.matchMedia?.("(prefers-color-scheme: light)").matches) {
-    return "light";
-  }
 
   return "dark";
 }
