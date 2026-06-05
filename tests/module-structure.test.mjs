@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 
@@ -246,6 +247,32 @@ test("GitHub Actions package workflow tests builds and deploys the static site",
   assert.doesNotMatch(buildScript, /tests/);
 });
 
+test("build output cache busts CSS and module entry assets", async () => {
+  const result = spawnSync(process.execPath, ["scripts/build-site.mjs"], {
+    encoding: "utf8",
+    env: { ...process.env, GITHUB_SHA: "1234567890abcdef" },
+  });
+
+  assert.equal(result.status, 0, result.stderr);
+
+  const distHtml = await read("dist/index.html");
+  const distCss = await read("dist/styles.css");
+
+  assert.match(distHtml, /href="\.\/styles\.css\?v=1234567890ab"/);
+  assert.match(distHtml, /src="\.\/src\/main\.js\?v=1234567890ab"/);
+
+  for (const stylesheet of [
+    "base.css",
+    "layout.css",
+    "hero.css",
+    "sections.css",
+    "tools.css",
+    "responsive.css",
+  ]) {
+    assert.match(distCss, new RegExp(`@import "./styles/${stylesheet}\\?v=1234567890ab";`));
+  }
+});
+
 test("header control uses fullscreen wording", async () => {
   const html = await read("index.html");
   const presentMode = await read("src/modules/presentMode.js");
@@ -301,6 +328,8 @@ test("global interface svg icons stay on the lucide visual system", async () => 
 
   for (const svgTag of inlineSvgTags) {
     assert.match(svgTag, /class="lucide /);
+    assert.match(svgTag, /width="20"/);
+    assert.match(svgTag, /height="20"/);
     assert.match(svgTag, /aria-hidden="true"/);
     assert.match(svgTag, /focusable="false"/);
   }
