@@ -22,11 +22,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 82px;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background: #07100f;
   color: var(--ink);
   font-family: Inter, "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -50,11 +52,11 @@ button {
 }
 
 .page-shell {
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .site-header {
-  position: fixed;
+  position: sticky;
   z-index: 30;
   top: 0;
   left: 0;
@@ -262,8 +264,13 @@ h1 {
 
 .section {
   width: min(var(--max), calc(100% - 40px));
+  max-width: calc(100vw - 40px);
   margin: 0 auto;
-  padding: 104px 0;
+  padding: 82px 0;
+}
+
+.section[id] {
+  scroll-margin-top: 82px;
 }
 
 .intro {
@@ -283,6 +290,11 @@ h1 {
   font-size: clamp(32px, 5vw, 58px);
   line-height: 1.08;
   letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.title-line {
+  display: inline;
 }
 
 .intro p,
@@ -429,7 +441,7 @@ h1 {
   position: relative;
   width: 100%;
   max-width: none;
-  padding: 104px max(20px, calc((100vw - var(--max)) / 2));
+  padding: 82px max(20px, calc((100vw - var(--max)) / 2));
   background:
     linear-gradient(180deg, rgba(24, 40, 37, 0.66), rgba(8, 15, 14, 0.92)),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 80px);
@@ -474,13 +486,13 @@ h1 {
 
 .pathway {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
   gap: 10px;
   margin-bottom: 18px;
 }
 
 .path-node {
-  min-height: 74px;
+  min-height: 66px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.04);
@@ -532,7 +544,7 @@ h1 {
 .tools-section {
   width: 100%;
   max-width: none;
-  padding: 104px max(20px, calc((100vw - var(--max)) / 2));
+  padding: 82px max(20px, calc((100vw - var(--max)) / 2));
   background: #0a1312;
 }
 
@@ -786,7 +798,7 @@ pre {
 }
 
 body.present-mode .site-header {
-  height: 58px;
+  min-height: 58px;
 }
 
 body.present-mode .nav-links {
@@ -794,8 +806,8 @@ body.present-mode .nav-links {
 }
 
 body.present-mode .section {
-  padding-top: 126px;
-  padding-bottom: 126px;
+  padding-top: 96px;
+  padding-bottom: 96px;
 }
 
 body.present-mode h1 {
@@ -803,6 +815,10 @@ body.present-mode h1 {
 }
 
 @media (max-width: 960px) {
+  html {
+    scroll-padding-top: 132px;
+  }
+
   .site-header {
     height: auto;
     min-height: 68px;
@@ -851,7 +867,90 @@ body.present-mode h1 {
   }
 }
 
+@media (max-width: 900px) {
+  .matrix-wrap {
+    overflow: visible;
+  }
+
+  .efficiency-matrix,
+  .efficiency-matrix tbody,
+  .efficiency-matrix tr,
+  .efficiency-matrix th,
+  .efficiency-matrix td {
+    display: block;
+  }
+
+  .efficiency-matrix {
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: transparent;
+  }
+
+  .efficiency-matrix thead {
+    display: none;
+  }
+
+  .efficiency-matrix tbody {
+    display: grid;
+    gap: 12px;
+  }
+
+  .efficiency-matrix tr {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(3, 10, 9, 0.46);
+    padding: 16px;
+  }
+
+  .efficiency-matrix th,
+  .efficiency-matrix td {
+    border-bottom: 0;
+    padding: 0;
+  }
+
+  .efficiency-matrix tbody th {
+    margin-bottom: 12px;
+    color: var(--accent-2);
+    font-size: 20px;
+  }
+
+  .efficiency-matrix td {
+    display: grid;
+    grid-template-columns: 86px minmax(0, 1fr);
+    gap: 12px;
+    padding: 9px 0;
+    border-top: 1px solid rgba(220, 238, 232, 0.1);
+  }
+
+  .efficiency-matrix td::before {
+    color: var(--muted-2);
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  .efficiency-matrix td:nth-of-type(1)::before {
+    content: "内容生成";
+  }
+
+  .efficiency-matrix td:nth-of-type(2)::before {
+    content: "知识检索";
+  }
+
+  .efficiency-matrix td:nth-of-type(3)::before {
+    content: "流程自动化";
+  }
+
+  .efficiency-matrix td:nth-of-type(4)::before {
+    content: "决策辅助";
+  }
+}
+
 @media (max-width: 680px) {
+  html {
+    scroll-padding-top: 132px;
+  }
+
   .brand span {
     max-width: 150px;
     overflow: hidden;
@@ -865,7 +964,6 @@ body.present-mode h1 {
   }
 
   .hero-signal,
-  .pathway,
   .case-grid,
   .action-list,
   .quiz-form,
@@ -880,12 +978,30 @@ body.present-mode h1 {
 
   .section {
     width: min(100% - 32px, var(--max));
-    padding: 74px 0;
+    max-width: calc(100vw - 32px);
+    padding: 58px 0;
+  }
+
+  .section[id] {
+    scroll-margin-top: 124px;
+  }
+
+  .title-line {
+    display: block;
+  }
+
+  .pathway {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .path-node {
+    min-height: 56px;
+    padding: 0 10px;
   }
 
   .dark-band,
   .tools-section {
-    padding: 74px 16px;
+    padding: 58px 16px;
   }
 
   .trend-step {
@@ -894,6 +1010,12 @@ body.present-mode h1 {
 
   .tool-header {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .pathway {
+    grid-template-columns: 1fr;
   }
 }
 
