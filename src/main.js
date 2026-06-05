@@ -1,0 +1,25 @@
+import { setupCopy } from "./modules/copy.js";
+import { setupHeroCanvas } from "./modules/heroCanvas.js";
+import { setupIndustries } from "./modules/industries.js";
+import { setupMaturity } from "./modules/maturity.js";
+import { setupPathway } from "./modules/pathway.js";
+import { setupPresentMode } from "./modules/presentMode.js";
+import { setupPrompt } from "./modules/prompt.js";
+import { setupReveal } from "./modules/reveal.js";
+import { setupRoadmap } from "./modules/roadmap.js";
+import { setupTheme } from "./modules/theme.js";
+import { setupRoles } from "./modules/roles.js";
+import { setupTrend } from "./modules/trend.js";
+
+setupTheme();
+setupTrend();
+setupIndustries();
+setupPathway();
+setupMaturity();
+setupRoles();
+setupPrompt();
+setupRoadmap();
+setupCopy();
+setupPresentMode();
+setupReveal();
+setupHeroCanvas();

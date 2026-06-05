@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="企业 AI 提效与创新互动分享站：国内外趋势、提效地图、案例、提示词模板和 90 天落地路线图。"
+      content="企业 AI 提效与创新互动分享站：国内外趋势、提效地图、AI Ready 准备课、案例、提示词模板和 90 天落地路线图。"
     />
     <title>企业 AI 提效与创新互动分享站</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,13 +27,45 @@
         <nav class="nav-links" aria-label="页面导航">
           <a href="#trend">趋势判断</a>
           <a href="#map">提效地图</a>
+          <a href="#emerging">新兴岗位</a>
           <a href="#innovation">创新路径</a>
+          <a href="#ai-ready">AI Ready</a>
           <a href="#cases">行业案例</a>
           <a href="#tools">互动工具</a>
           <a href="#action">行动清单</a>
         </nav>
-        <button class="mode-toggle" type="button" id="present-toggle" aria-pressed="false">
-          投屏模式
+        <a class="github-link header-github" href="https://github.com/AICode-Nexus/ai-productivity-innovation" target="_blank" rel="noreferrer" aria-label="在 GitHub 上查看项目">
+          <img class="github-logo" src="https://github.githubassets.com/favicons/favicon.png" alt="" width="24" height="24" />
+        </a>
+        <button class="theme-toggle" type="button" id="theme-toggle" data-theme-toggle aria-label="切换到黑色主题" aria-pressed="false">
+          <svg class="lucide lucide-sun theme-icon theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <svg class="lucide lucide-moon theme-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+        <button class="mode-toggle" type="button" id="present-toggle" aria-label="进入全屏" aria-pressed="false">
+          <svg class="lucide lucide-maximize mode-icon mode-icon-enter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
+            <path d="M21 8V5a2 2 0 0 0-2-2h-3"></path>
+            <path d="M3 16v3a2 2 0 0 0 2 2h3"></path>
+            <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
+          </svg>
+          <svg class="lucide lucide-minimize mode-icon mode-icon-exit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M8 3v3a2 2 0 0 1-2 2H3"></path>
+            <path d="M21 8h-3a2 2 0 0 1-2-2V3"></path>
+            <path d="M3 16h3a2 2 0 0 1 2 2v3"></path>
+            <path d="M16 21v-3a2 2 0 0 1 2-2h3"></path>
+          </svg>
         </button>
       </header>
 
@@ -45,7 +77,7 @@
             <p class="eyebrow">企业 AI 提效与创新 · 互动分享站</p>
             <h1 id="hero-title">从个人提效，走向组织级创新。</h1>
             <p class="hero-copy">
-              一套面向管理者和业务团队的半天分享内容：先看国内外 AI 提效发展，再把 AI 落到岗位、流程、质量标准和 90 天行动。
+              一套面向管理者和业务团队的半天分享内容：先看国内外 AI 提效发展，再补齐 AI Ready 准备课，把 AI 落到岗位、流程、工具、算力、质量标准和 90 天行动。
             </p>
             <div class="hero-actions">
               <a class="primary-action" href="#tools">开始互动工具</a>
@@ -54,7 +86,7 @@
           </div>
           <aside class="hero-signal reveal" aria-label="分享节奏">
             <div>
-              <span class="signal-number">6</span>
+              <span class="signal-number">8</span>
               <span class="signal-label">章节主线</span>
             </div>
             <div>
@@ -73,7 +105,7 @@
           <div class="intro-grid">
             <h2 id="intro-title">AI 的下一轮红利，不在“多用几个工具”，而在“重写工作方式”。</h2>
             <p>
-              个人已经能用 AI 写、查、算、画、总结；企业真正的分水岭，是把这些能力嵌入流程，明确输入、输出、质检、责任和复盘，让 AI 从个人助手变成组织能力。
+              个人已经能用 AI 写、查、算、画、总结；企业真正的分水岭，是先准备好场景、数据、工具、算力、人才和治理，再把这些能力嵌入流程，明确输入、输出、质检、责任和复盘。
             </p>
           </div>
         </section>
@@ -182,6 +214,146 @@
           </div>
         </section>
 
+        <section class="section reveal" id="emerging" aria-labelledby="emerging-title">
+          <div class="section-heading">
+            <p class="section-kicker">Emerging Jobs</p>
+            <h2 id="emerging-title">AI 时代的新兴岗位：从会用工具，到能落地系统</h2>
+            <p>这些岗位不是为了追热词，而是补齐企业把 AI 放进真实流程时最容易缺失的能力。</p>
+          </div>
+          <div class="emerging-grid">
+            <article class="emerging-card">
+              <span>FDE</span>
+              <h3>Forward Deployed Engineer / 前线部署工程师</h3>
+              <dl>
+                <div>
+                  <dt>解决的问题</dt>
+                  <dd>AI 能力到业务现场之间的部署断层。</dd>
+                </div>
+                <div>
+                  <dt>典型产出</dt>
+                  <dd>现场流程图、数据接入清单、试点方案、上线检查表。</dd>
+                </div>
+                <div>
+                  <dt>配置时机</dt>
+                  <dd>已有明确场景，但 IT、数据和一线团队协作成本较高。</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="emerging-card">
+              <span>Agent</span>
+              <h3>AI Agent 工程师</h3>
+              <dl>
+                <div>
+                  <dt>解决的问题</dt>
+                  <dd>任务链自动执行、工具调用和人机交接设计。</dd>
+                </div>
+                <div>
+                  <dt>典型产出</dt>
+                  <dd>Agent 任务说明、工具权限、异常升级规则、日志和回滚方案。</dd>
+                </div>
+                <div>
+                  <dt>配置时机</dt>
+                  <dd>已完成流程梳理，准备把低风险重复任务交给 Agent。</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="emerging-card">
+              <span>Product</span>
+              <h3>AI 产品工程师</h3>
+              <dl>
+                <div>
+                  <dt>解决的问题</dt>
+                  <dd>模型能力如何变成真实可用的产品功能。</dd>
+                </div>
+                <div>
+                  <dt>典型产出</dt>
+                  <dd>AI 功能 PRD、交互状态、评估样例、灰度计划。</dd>
+                </div>
+                <div>
+                  <dt>配置时机</dt>
+                  <dd>软件、平台或客户触点需要持续迭代 AI 体验。</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="emerging-card">
+              <span>Context</span>
+              <h3>上下文/知识工程师</h3>
+              <dl>
+                <div>
+                  <dt>解决的问题</dt>
+                  <dd>AI 不知道该信什么材料、该引用什么知识。</dd>
+                </div>
+                <div>
+                  <dt>典型产出</dt>
+                  <dd>知识地图、检索标签、样例问答、更新机制和权限规则。</dd>
+                </div>
+                <div>
+                  <dt>配置时机</dt>
+                  <dd>文档分散、制度复杂，知识准确性直接影响交付质量。</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="emerging-card">
+              <span>Governance</span>
+              <h3>AI 评测与治理负责人</h3>
+              <dl>
+                <div>
+                  <dt>解决的问题</dt>
+                  <dd>AI 输出质量、合规、安全和责任边界无法判断。</dd>
+                </div>
+                <div>
+                  <dt>典型产出</dt>
+                  <dd>评测集、风险清单、审批流程、抽检表和事故复盘模板。</dd>
+                </div>
+                <div>
+                  <dt>配置时机</dt>
+                  <dd>金融、医疗、工业等高风险场景，或 AI 功能准备对外上线。</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="emerging-card">
+              <span>Enablement</span>
+              <h3>AI Enablement / 落地教练</h3>
+              <dl>
+                <div>
+                  <dt>解决的问题</dt>
+                  <dd>工具已经买了，但团队不会持续使用、不会复盘。</dd>
+                </div>
+                <div>
+                  <dt>典型产出</dt>
+                  <dd>岗位模板库、培训任务、共创工作坊、好样例和使用复盘机制。</dd>
+                </div>
+                <div>
+                  <dt>配置时机</dt>
+                  <dd>企业处在工具尝鲜到流程嵌入之间，需要扩大真实采用率。</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+
+          <div class="industry-checker" id="industry-checker">
+            <div class="industry-control">
+              <div>
+                <p class="section-kicker">Industry Fit</p>
+                <h3>按行业做一次适配检查</h3>
+                <p>选择行业，快速判断哪些新岗位优先配置、哪些场景先试点、哪些风险要提前拦住。</p>
+              </div>
+              <label>
+                行业
+                <select id="industry-select">
+                  <option value="manufacturing">制造/工业</option>
+                  <option value="retail">零售/电商</option>
+                  <option value="finance">金融/保险</option>
+                  <option value="healthcare">医疗健康</option>
+                  <option value="education">教育培训</option>
+                  <option value="software">软件/互联网</option>
+                </select>
+              </label>
+            </div>
+            <div class="industry-output" id="industry-output" aria-live="polite"></div>
+          </div>
+        </section>
+
         <section class="section reveal" id="innovation" aria-labelledby="innovation-title">
           <div class="section-heading">
             <p class="section-kicker">Innovation Path</p>
@@ -198,6 +370,205 @@
             <button class="path-node" type="button" data-path="loop">复盘可迭代</button>
           </div>
           <div class="path-detail" id="path-detail" aria-live="polite"></div>
+        </section>
+
+        <section class="section reveal" id="ai-ready" aria-labelledby="ai-ready-title">
+          <div class="section-heading">
+            <p class="section-kicker">AI Ready Course</p>
+            <h2 id="ai-ready-title">企业 AI Ready：上 AI 前先准备这六件事</h2>
+            <p>AI 提效不是先买工具，也不是先堆算力。企业要把业务目标、可信材料、工具入口、模型供给、人员流程和治理机制放到同一张准备清单里。</p>
+          </div>
+          <div class="ready-grid">
+            <article class="ready-card">
+              <span>01</span>
+              <h3>战略与场景</h3>
+              <dl>
+                <div>
+                  <dt>为什么重要</dt>
+                  <dd>没有业务目标，AI 项目会变成工具试用，难以判断投入是否值得扩大。</dd>
+                </div>
+                <div>
+                  <dt>准备什么</dt>
+                  <dd>明确优先业务、目标指标、试点流程、责任人和可接受的收益周期。</dd>
+                </div>
+                <div>
+                  <dt>检查问题</dt>
+                  <dd>是否能说清这次 AI 试点要改善哪一个指标，以及不用 AI 时的当前基线？</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="ready-card">
+              <span>02</span>
+              <h3>数据与知识</h3>
+              <dl>
+                <div>
+                  <dt>为什么重要</dt>
+                  <dd>AI 输出质量取决于材料质量，分散、过期或越权的数据会直接放大业务风险。</dd>
+                </div>
+                <div>
+                  <dt>准备什么</dt>
+                  <dd>梳理知识库、业务文档、数据来源、更新频率、权限分级和敏感信息边界。</dd>
+                </div>
+                <div>
+                  <dt>检查问题</dt>
+                  <dd>关键任务所需材料是否找得到、信得过、可授权，并且知道谁负责维护？</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="ready-card">
+              <span>03</span>
+              <h3>工具与平台</h3>
+              <dl>
+                <div>
+                  <dt>为什么重要</dt>
+                  <dd>如果 AI 只停在聊天框里，员工仍要复制粘贴，提效很难沉淀为团队流程。</dd>
+                </div>
+                <div>
+                  <dt>准备什么</dt>
+                  <dd>盘点办公套件、CRM、工单、文档、表格、知识库和 AI 工具的集成入口。</dd>
+                </div>
+                <div>
+                  <dt>检查问题</dt>
+                  <dd>目标流程中的输入、输出、审批和追踪，是否能在现有工具里顺畅衔接？</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="ready-card">
+              <span>04</span>
+              <h3>算力与模型</h3>
+              <dl>
+                <div>
+                  <dt>为什么重要</dt>
+                  <dd>模型能力、成本、延迟和可用性会影响体验，也决定哪些场景适合规模化。</dd>
+                </div>
+                <div>
+                  <dt>准备什么</dt>
+                  <dd>明确模型选择、调用方式、上下文长度、并发需求、预算上限和备用方案。</dd>
+                </div>
+                <div>
+                  <dt>检查问题</dt>
+                  <dd>高峰期是否有稳定供给，单位任务成本是否可接受，关键任务是否有降级路径？</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="ready-card">
+              <span>05</span>
+              <h3>人才与流程</h3>
+              <dl>
+                <div>
+                  <dt>为什么重要</dt>
+                  <dd>AI 改变的是工作分工，只有培训工具用法，不会自动形成新的协作方式。</dd>
+                </div>
+                <div>
+                  <dt>准备什么</dt>
+                  <dd>设计岗位 SOP、培训任务、提示词样例、人机分工、审核节点和复盘节奏。</dd>
+                </div>
+                <div>
+                  <dt>检查问题</dt>
+                  <dd>员工是否知道哪些任务交给 AI、哪些必须人工判断、结果不合格时找谁处理？</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="ready-card">
+              <span>06</span>
+              <h3>治理与评估</h3>
+              <dl>
+                <div>
+                  <dt>为什么重要</dt>
+                  <dd>没有质量、安全和责任边界，AI 越深入流程，潜在错误和合规风险越难追踪。</dd>
+                </div>
+                <div>
+                  <dt>准备什么</dt>
+                  <dd>建立输出标准、抽检机制、日志记录、风险分级、审批规则和事故复盘模板。</dd>
+                </div>
+                <div>
+                  <dt>检查问题</dt>
+                  <dd>当 AI 输出错误、泄露敏感信息或影响客户时，是否知道如何发现、升级和纠正？</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+          <div class="tool-map">
+            <div class="tool-map-heading">
+              <p class="section-kicker">Market Map</p>
+              <h3>工具、模型与 Agent 图谱：先认识代表性能力，再决定怎么接入</h3>
+              <p>这些名字不是采购清单，而是帮助企业理解当下 AI 能力边界：哪些适合做通用模型供给，哪些适合进入研发流程，哪些适合内容生产，哪些适合沉淀成 Agent、Skills 和工作流。</p>
+            </div>
+            <div class="tool-map-grid">
+              <article class="tool-map-card">
+                <span>Compute & Models</span>
+                <h4>算力与模型供给</h4>
+                <dl>
+                  <div>
+                    <dt>代表工具</dt>
+                    <dd>OpenAI GPT/Codex 系列、Claude、Gemini、Qwen、GLM/Z.ai、DeepSeek、Kimi。</dd>
+                  </div>
+                  <div>
+                    <dt>适合场景</dt>
+                    <dd>通用问答、中文知识工作、代码生成、长文档分析、多模态理解和企业 API 接入。</dd>
+                  </div>
+                  <div>
+                    <dt>导入前准备</dt>
+                    <dd>准备评测集、成本预算、调用限额、私有化或云端策略、延迟要求、备用模型和降级路径。</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="tool-map-card">
+                <span>Coding Agents</span>
+                <h4>代码与研发 Agent</h4>
+                <dl>
+                  <div>
+                    <dt>代表工具</dt>
+                    <dd>Codex、Claude Code、Qwen Code、GLM coding、Cursor、Windsurf Cascade、GitHub Copilot coding agent、Devin、Cline。</dd>
+                  </div>
+                  <div>
+                    <dt>适合场景</dt>
+                    <dd>需求拆解、代码生成、重构、测试补齐、PR 审查、文档生成、CI 失败定位和遗留系统理解。</dd>
+                  </div>
+                  <div>
+                    <dt>导入前准备</dt>
+                    <dd>准备代码权限、沙箱环境、测试命令、分支策略、审查规则、AGENTS.md/Rules、日志和人类批准点。</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="tool-map-card">
+                <span>Creative & Video</span>
+                <h4>内容与视频创作工具</h4>
+                <dl>
+                  <div>
+                    <dt>代表工具</dt>
+                    <dd>Seedance 2.0、Google Veo、OpenAI Sora、Runway Gen-4、可灵 Kling、MiniMax/Hailuo、Vidu、PixVerse、LiblibAI。</dd>
+                  </div>
+                  <div>
+                    <dt>适合场景</dt>
+                    <dd>短视频脚本、广告分镜、产品演示、培训素材、直播切片、品牌视觉探索和营销素材批量生产。</dd>
+                  </div>
+                  <div>
+                    <dt>导入前准备</dt>
+                    <dd>准备品牌规范、素材授权、人物肖像/IP 边界、审核流程、提示词模板、分镜标准和版权风险判断。</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="tool-map-card">
+                <span>Agents & Skills</span>
+                <h4>Agent、Skills 与工作流平台</h4>
+                <dl>
+                  <div>
+                    <dt>代表工具</dt>
+                    <dd>Claude Skills、Codex AGENTS.md/Skills、MCP、OpenAI Agents SDK、LangGraph、Google ADK、Dify、Coze、n8n、Flowise。</dd>
+                  </div>
+                  <div>
+                    <dt>适合场景</dt>
+                    <dd>把重复任务封装成可复用流程，连接知识库、表格、业务系统和审批节点，让 AI 能调用工具并留下轨迹。</dd>
+                  </div>
+                  <div>
+                    <dt>导入前准备</dt>
+                    <dd>准备工具权限、输入输出契约、异常升级、人机交接、运行日志、审批策略、沙箱测试和回滚方案。</dd>
+                  </div>
+                </dl>
+              </article>
+            </div>
+          </div>
         </section>
 
         <section class="section reveal" id="cases" aria-labelledby="cases-title">
@@ -258,45 +629,45 @@
             <form class="quiz-form" id="maturity-form">
               <fieldset>
                 <legend>1. 团队使用 AI 的频率</legend>
-                <label><input type="radio" name="usage" value="0" checked /> 零散尝试，主要靠个人兴趣</label>
-                <label><input type="radio" name="usage" value="1" /> 关键岗位每周使用</label>
-                <label><input type="radio" name="usage" value="2" /> 已嵌入多个日常流程</label>
-                <label><input type="radio" name="usage" value="3" /> 有可复用的 Agent 或自动化工作流</label>
+                <label class="quiz-option"><input type="radio" name="usage" value="0" checked /> 零散尝试，主要靠个人兴趣</label>
+                <label class="quiz-option"><input type="radio" name="usage" value="1" /> 关键岗位每周使用</label>
+                <label class="quiz-option"><input type="radio" name="usage" value="2" /> 已嵌入多个日常流程</label>
+                <label class="quiz-option"><input type="radio" name="usage" value="3" /> 有可复用的 Agent 或自动化工作流</label>
               </fieldset>
               <fieldset>
                 <legend>2. 是否有明确场景清单</legend>
-                <label><input type="radio" name="scenarios" value="0" checked /> 没有，想到哪用到哪</label>
-                <label><input type="radio" name="scenarios" value="1" /> 有少量个人模板</label>
-                <label><input type="radio" name="scenarios" value="2" /> 有岗位级场景和流程说明</label>
-                <label><input type="radio" name="scenarios" value="3" /> 有业务目标、责任人和指标</label>
+                <label class="quiz-option"><input type="radio" name="scenarios" value="0" checked /> 没有，想到哪用到哪</label>
+                <label class="quiz-option"><input type="radio" name="scenarios" value="1" /> 有少量个人模板</label>
+                <label class="quiz-option"><input type="radio" name="scenarios" value="2" /> 有岗位级场景和流程说明</label>
+                <label class="quiz-option"><input type="radio" name="scenarios" value="3" /> 有业务目标、责任人和指标</label>
               </fieldset>
               <fieldset>
                 <legend>3. 知识和数据准备</legend>
-                <label><input type="radio" name="data" value="0" checked /> 文档分散，靠人找</label>
-                <label><input type="radio" name="data" value="1" /> 有共享资料夹或知识库</label>
-                <label><input type="radio" name="data" value="2" /> 已梳理关键知识和权限</label>
-                <label><input type="radio" name="data" value="3" /> 可按任务调用可信知识源</label>
+                <label class="quiz-option"><input type="radio" name="data" value="0" checked /> 文档分散，靠人找</label>
+                <label class="quiz-option"><input type="radio" name="data" value="1" /> 有共享资料夹或知识库</label>
+                <label class="quiz-option"><input type="radio" name="data" value="2" /> 已梳理关键知识和权限</label>
+                <label class="quiz-option"><input type="radio" name="data" value="3" /> 可按任务调用可信知识源</label>
               </fieldset>
               <fieldset>
                 <legend>4. 质量标准</legend>
-                <label><input type="radio" name="quality" value="0" checked /> 结果靠经验判断</label>
-                <label><input type="radio" name="quality" value="1" /> 有少量示例和人工审核</label>
-                <label><input type="radio" name="quality" value="2" /> 有输出标准和检查清单</label>
-                <label><input type="radio" name="quality" value="3" /> 有自动评估、人审和复盘机制</label>
+                <label class="quiz-option"><input type="radio" name="quality" value="0" checked /> 结果靠经验判断</label>
+                <label class="quiz-option"><input type="radio" name="quality" value="1" /> 有少量示例和人工审核</label>
+                <label class="quiz-option"><input type="radio" name="quality" value="2" /> 有输出标准和检查清单</label>
+                <label class="quiz-option"><input type="radio" name="quality" value="3" /> 有自动评估、人审和复盘机制</label>
               </fieldset>
               <fieldset>
                 <legend>5. 管理支持</legend>
-                <label><input type="radio" name="manager" value="0" checked /> 没有明确支持</label>
-                <label><input type="radio" name="manager" value="1" /> 鼓励尝试，但不进入目标</label>
-                <label><input type="radio" name="manager" value="2" /> 有试点目标和负责人</label>
-                <label><input type="radio" name="manager" value="3" /> 纳入组织能力和绩效讨论</label>
+                <label class="quiz-option"><input type="radio" name="manager" value="0" checked /> 没有明确支持</label>
+                <label class="quiz-option"><input type="radio" name="manager" value="1" /> 鼓励尝试，但不进入目标</label>
+                <label class="quiz-option"><input type="radio" name="manager" value="2" /> 有试点目标和负责人</label>
+                <label class="quiz-option"><input type="radio" name="manager" value="3" /> 纳入组织能力和绩效讨论</label>
               </fieldset>
               <fieldset>
                 <legend>6. 工作流集成</legend>
-                <label><input type="radio" name="workflow" value="0" checked /> 只在聊天框里使用</label>
-                <label><input type="radio" name="workflow" value="1" /> 复制粘贴到现有工具</label>
-                <label><input type="radio" name="workflow" value="2" /> 与表格、文档、CRM、工单等工具配合</label>
-                <label><input type="radio" name="workflow" value="3" /> 能自动触发、跟踪和交接任务</label>
+                <label class="quiz-option"><input type="radio" name="workflow" value="0" checked /> 只在聊天框里使用</label>
+                <label class="quiz-option"><input type="radio" name="workflow" value="1" /> 复制粘贴到现有工具</label>
+                <label class="quiz-option"><input type="radio" name="workflow" value="2" /> 与表格、文档、CRM、工单等工具配合</label>
+                <label class="quiz-option"><input type="radio" name="workflow" value="3" /> 能自动触发、跟踪和交接任务</label>
               </fieldset>
             </form>
             <div class="result-box" id="maturity-result" aria-live="polite"></div>
@@ -317,6 +688,12 @@
               <button type="button" data-role="hr">人力</button>
               <button type="button" data-role="product">研发/产品</button>
               <button type="button" data-role="management">管理</button>
+              <button type="button" data-role="fde">FDE</button>
+              <button type="button" data-role="agentEngineer">AI Agent 工程师</button>
+              <button type="button" data-role="aiProductEngineer">AI 产品工程师</button>
+              <button type="button" data-role="contextEngineer">知识工程师</button>
+              <button type="button" data-role="aiGovernance">AI 评测治理</button>
+              <button type="button" data-role="aiEnablement">AI Enablement</button>
             </div>
             <div class="role-output" id="role-output" aria-live="polite"></div>
           </div>
@@ -339,6 +716,12 @@
                   <option>人力负责人</option>
                   <option>产品经理</option>
                   <option>总经理/业务负责人</option>
+                  <option>Forward Deployed Engineer</option>
+                  <option>AI Agent 工程师</option>
+                  <option>AI 产品工程师</option>
+                  <option>上下文/知识工程师</option>
+                  <option>AI 评测与治理负责人</option>
+                  <option>AI Enablement / 落地教练</option>
                 </select>
               </label>
               <label>
@@ -412,11 +795,16 @@
 
       <footer class="site-footer">
         <p>企业 AI 提效与创新互动分享站 · AICode-Nexus</p>
-        <a href="#top">回到顶部</a>
+        <div class="footer-links">
+          <a class="github-link footer-github" href="https://github.com/AICode-Nexus/ai-productivity-innovation" target="_blank" rel="noreferrer" aria-label="在 GitHub 上查看项目">
+            <img class="github-logo" src="https://github.githubassets.com/favicons/favicon.png" alt="" width="24" height="24" />
+          </a>
+          <a href="#top">回到顶部</a>
+        </div>
       </footer>
     </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="./main.js"></script>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>

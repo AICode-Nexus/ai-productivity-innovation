@@ -1,0 +1,296 @@
+.tools-section {
+  width: 100%;
+  max-width: none;
+  padding: var(--section-y) max(var(--gutter), calc((100vw - var(--max)) / 2));
+  background: var(--tools-bg);
+}
+
+.tool-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: clamp(20px, 4vw, 32px);
+  background: var(--panel-bg-soft);
+  scroll-margin-top: 96px;
+}
+
+.tool-panel + .tool-panel {
+  margin-top: 20px;
+}
+
+.tool-header {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.tool-header > span {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.tool-header h3 {
+  margin-bottom: 6px;
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.tool-header p,
+.role-output p,
+.result-box p {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.quiz-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+fieldset {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+legend {
+  padding: 0 8px;
+  color: var(--accent-2);
+  font-weight: 900;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  color: var(--detail-text);
+  line-height: 1.5;
+}
+
+.quiz-option {
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  padding: 6px 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.quiz-option:hover {
+  background: var(--control-hover-bg);
+  color: var(--ink);
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-content: center;
+  align-self: center;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+  background: var(--control-bg-strong);
+  margin: 0;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--soft);
+  transform: scale(0);
+  transition: transform 140ms ease;
+}
+
+input[type="radio"]:checked {
+  border-color: var(--accent);
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+.result-box,
+.role-output,
+.roadmap-output {
+  min-height: 220px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-bg);
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.result-box h3,
+.role-output h3,
+.roadmap-output h3 {
+  margin-bottom: 12px;
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.result-box {
+  margin-top: 18px;
+  min-height: auto;
+}
+
+.result-stage {
+  display: inline-flex;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.role-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.role-tabs button {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 14px;
+  background: var(--panel-bg-soft);
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.role-tabs button.active {
+  border-color: transparent;
+  background: var(--accent-4);
+  color: var(--on-accent-4);
+}
+
+.role-output {
+  min-height: auto;
+}
+
+.role-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.role-columns div {
+  border-left: 2px solid var(--accent);
+  padding-left: 14px;
+}
+
+.role-columns h4 {
+  margin: 0 0 8px;
+}
+
+.role-columns p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.prompt-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min(280px, 100%), 1fr));
+  gap: 16px;
+}
+
+.prompt-form label:nth-child(n + 3) {
+  grid-column: span 2;
+}
+
+select,
+input:not([type="radio"]),
+textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--field-bg);
+  color: var(--ink);
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+select:focus,
+input:not([type="radio"]):focus,
+textarea:focus {
+  border-color: var(--focus-border);
+}
+
+select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 44px;
+  background:
+    var(--select-arrow)
+      right 14px center / 18px 18px no-repeat,
+    var(--field-bg);
+}
+
+select option {
+  background: var(--field-option-bg);
+  color: var(--ink);
+}
+
+textarea {
+  display: block;
+  min-height: 112px;
+  resize: vertical;
+}
+
+.prompt-output-wrap {
+  margin-top: 18px;
+}
+
+pre {
+  overflow: auto;
+  max-width: 100%;
+  max-height: 390px;
+  margin: 0 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--code-bg);
+  color: var(--code-ink);
+  padding: 18px;
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+.roadmap-controls {
+  margin: 0 0 18px;
+  align-items: end;
+}
+
+.roadmap-controls label {
+  flex: 1 1 320px;
+  min-width: min(100%, 280px);
+  max-width: 390px;
+}
+
+.roadmap-output {
+  min-height: auto;
+}
