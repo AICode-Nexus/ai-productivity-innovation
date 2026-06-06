@@ -4,6 +4,7 @@ function buildPrompt(form) {
   const task = data.get("task");
   const material = data.get("material");
   const standard = data.get("standard");
+  const constraints = data.get("constraints");
 
   return `你现在是一名${role}的 AI 工作助理。
 
@@ -21,6 +22,9 @@ ${material}
 
 质量标准：
 ${standard}
+
+模型、账号与算力约束：
+${constraints}
 
 请按以下结构输出：
 - 目标理解

@@ -244,13 +244,16 @@ test("data modules preserve default startup keys", async () => {
   assert.ok(pathData.input);
   assert.ok(roleData.sales);
   assert.ok(roadmapData.starter);
-  assert.equal(maturityLevels.at(-1).max, 18);
+  assert.equal(maturityLevels.at(-1).max, 21);
 });
 
-test("README documents the Node static server workflow", async () => {
+test("README documents the Node static server workflow and account compute note", async () => {
   const readme = await read("README.md");
   assert.match(readme, /npm run dev/);
   assert.match(readme, /GitHub Pages/);
+  assert.match(readme, /Claude Code \/ Codex/);
+  assert.match(readme, /中转站/);
+  assert.match(readme, /国内算力/);
 });
 
 test("GitHub Actions package workflow tests builds and deploys the static site", async () => {
