@@ -10,6 +10,7 @@ import { setupRoadmap } from "./modules/roadmap.js";
 import { setupTheme } from "./modules/theme.js";
 import { setupRoles } from "./modules/roles.js";
 import { setupTrend } from "./modules/trend.js";
+import { setupWechatFloat } from "./modules/wechatFloat.js";
 
 setupTheme();
 setupTrend();
@@ -23,3 +24,4 @@ setupCopy();
 setupPresentMode();
 setupReveal();
 setupHeroCanvas();
+setupWechatFloat();
