@@ -553,6 +553,23 @@ test("AI Ready course includes a concrete tools models and agents map", async ()
   }
 });
 
+test("page includes a concise T-shaped talent development section", async () => {
+  const html = await read("index.html");
+
+  assert.match(html, /href="#t-shaped">\s*T型人才\s*<\/a>/);
+  assert.match(html, /<section[^>]+id="t-shaped"[^>]+aria-labelledby="t-shaped-title"/);
+  assert.match(html, /AI 时代的 T 型人才：一专多能，人机协作/);
+  assert.match(html, /<span class="signal-number">9<\/span>\s*<span class="signal-label">章节主线<\/span>/);
+
+  for (const audience of ["管理者", "员工", "HR/培训"]) {
+    assert.match(html, new RegExp(audience));
+  }
+
+  for (const direction of ["先选高频真实任务", "再用 AI 完成辅助、检查、复盘", "最后沉淀进 SOP、模板库和团队经验"]) {
+    assert.match(html, new RegExp(direction));
+  }
+});
+
 test("AI emerging jobs and industry checker are wired into the page", async () => {
   const html = await read("index.html");
   const main = await read("src/main.js");
