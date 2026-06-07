@@ -467,7 +467,7 @@
               <article>
                 <span>04</span>
                 <h4>选型要看可持续性</h4>
-                <p>不要只比较模型榜单。还要看账号所有权、团队权限、峰值并发、延迟、价格波动、上下文成本、数据留存、审计日志、备用模型和人工降级路径。</p>
+                <p>不要只比较模型榜单。还要看账号所有权、团队权限、峰值并发、延迟、价格波动、上下文成本、数据留存、审计日志、备用模型和人工降级路径；长期运行 Agent 还要看权限隔离、审计日志、回滚和停机机制。</p>
               </article>
             </div>
             <div class="source-strip compact" aria-label="账号与算力来源">
@@ -593,7 +593,7 @@
             <div class="tool-map-heading">
               <p class="section-kicker">Market Map</p>
               <h3>工具、模型与 Agent 图谱：先认识代表性能力，再决定怎么接入</h3>
-              <p>这些名字不是采购清单，而是帮助企业理解当下 AI 能力边界：哪些适合做通用模型供给，哪些适合进入研发流程，哪些适合内容生产，哪些适合沉淀成 Agent、Skills 和工作流，以及哪些必须先解决账号、合规访问和算力稳定性。</p>
+              <p>这些名字不是采购清单，而是帮助企业理解当下 AI 能力边界：哪些适合做通用模型供给，哪些适合进入研发流程，哪些适合内容生产，哪些适合沉淀成长期运行的个人 Agent、Skills 和工作流，以及哪些必须先解决账号、合规访问和算力稳定性。</p>
             </div>
             <div class="tool-map-grid">
               <article class="tool-map-card">
@@ -668,6 +668,24 @@
                   </div>
                 </dl>
               </article>
+              <article class="tool-map-card">
+                <span>Personal Agents</span>
+                <h4>个人 Agent 与自托管运行时</h4>
+                <dl>
+                  <div>
+                    <dt>代表工具</dt>
+                    <dd>OpenClaw、Hermes Agent / Hey Hermes、Manus、Perplexity Computer。</dd>
+                  </div>
+                  <div>
+                    <dt>适合场景</dt>
+                    <dd>跨应用个人助理、邮箱/日程/文件处理、长期研究监控、竞品追踪、低风险后台自动化、个人知识库和工作流协同。</dd>
+                  </div>
+                  <div>
+                    <dt>导入前准备</dt>
+                    <dd>准备最小权限、沙箱环境、人工审批点、运行日志、回滚机制、敏感数据边界、长期运行成本和模型/API 账号归属。</dd>
+                  </div>
+                </dl>
+              </article>
             </div>
           </div>
         </section>
@@ -724,7 +742,7 @@
               <span>01</span>
               <div>
                 <h3>AI 提效成熟度自测</h3>
-                <p>回答 6 个问题，判断企业当前处在什么阶段。</p>
+                <p>回答 7 个问题，判断企业当前处在什么阶段。</p>
               </div>
             </div>
             <form class="quiz-form" id="maturity-form">

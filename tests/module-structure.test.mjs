@@ -254,6 +254,10 @@ test("README documents the Node static server workflow and account compute note"
   assert.match(readme, /Claude Code \/ Codex/);
   assert.match(readme, /中转站/);
   assert.match(readme, /国内算力/);
+  assert.match(readme, /个人 Agent \/ 自托管运行时/);
+  assert.match(readme, /OpenClaw Docs/);
+  assert.match(readme, /Hermes Agent GitHub/);
+  assert.match(readme, /Hey Hermes/);
 });
 
 test("GitHub Actions package workflow tests builds and deploys the static site", async () => {
@@ -535,6 +539,7 @@ test("AI Ready course includes a concrete tools models and agents map", async ()
     "代码与研发 Agent",
     "内容与视频创作工具",
     "Agent、Skills 与工作流平台",
+    "个人 Agent 与自托管运行时",
   ]) {
     assert.match(html, new RegExp(category));
   }
@@ -548,6 +553,10 @@ test("AI Ready course includes a concrete tools models and agents map", async ()
     "LiblibAI",
     "MCP",
     "Dify",
+    "OpenClaw",
+    "Hermes Agent",
+    "Hey Hermes",
+    "Perplexity Computer",
   ]) {
     assert.match(html, new RegExp(toolName));
   }
