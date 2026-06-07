@@ -361,6 +361,23 @@ test("header and footer link to the project GitHub repository with the logo", as
   assert.match(layoutCss, /\.github-logo\s*{[^}]*width:\s*24px/s);
 });
 
+test("footer text and action links share one horizontal centerline", async () => {
+  const layoutCss = await read("styles/layout.css");
+  const responsiveCss = await read("styles/responsive.css");
+
+  assert.match(layoutCss, /\.site-footer\s*{[^}]*display:\s*grid/s);
+  assert.match(layoutCss, /\.site-footer\s*{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\) max-content/s);
+  assert.match(layoutCss, /\.site-footer p\s*{[^}]*min-height:\s*44px/s);
+  assert.match(layoutCss, /\.site-footer p\s*{[^}]*display:\s*inline-flex/s);
+  assert.match(layoutCss, /\.site-footer p\s*{[^}]*align-items:\s*center/s);
+  assert.match(layoutCss, /\.site-footer p\s*{[^}]*line-height:\s*1/s);
+  assert.match(layoutCss, /\.footer-links\s*{[^}]*min-height:\s*44px/s);
+  assert.match(layoutCss, /\.footer-links a\s*{[^}]*height:\s*44px/s);
+  assert.match(layoutCss, /\.footer-links a\s*{[^}]*line-height:\s*1/s);
+  assert.match(layoutCss, /\.footer-links\s*{[^}]*align-items:\s*center/s);
+  assert.match(responsiveCss, /\.site-footer\s*{[^}]*grid-template-columns:\s*1fr/s);
+});
+
 test("header exposes the local WeChat QR code beside the global controls", async () => {
   const html = await read("index.html");
   const layoutCss = await read("styles/layout.css");
