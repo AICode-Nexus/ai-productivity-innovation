@@ -7,7 +7,7 @@
     height: auto;
     min-height: 68px;
     align-items: flex-start;
-    grid-template-columns: max-content minmax(0, 1fr) max-content max-content;
+    grid-template-columns: max-content minmax(0, 1fr) max-content max-content max-content;
     row-gap: 10px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -30,13 +30,18 @@
     grid-column: 2;
   }
 
-  .theme-toggle {
+  .wechat-contact {
     grid-column: 3;
     justify-self: end;
   }
 
-  .mode-toggle {
+  .theme-toggle {
     grid-column: 4;
+    justify-self: end;
+  }
+
+  .mode-toggle {
+    grid-column: 5;
     justify-self: end;
   }
 
@@ -170,7 +175,7 @@
   }
 
   .site-header {
-    grid-template-columns: minmax(72px, 1fr) 44px 44px max-content;
+    grid-template-columns: minmax(72px, 1fr) repeat(4, 44px);
     column-gap: 6px;
   }
 
@@ -261,6 +266,20 @@
 
   .tool-header {
     flex-direction: column;
+  }
+
+  .wechat-panel {
+    position: fixed;
+    top: 76px;
+    right: 16px;
+    width: min(268px, calc(100vw - 32px));
+    max-height: calc(100dvh - 96px);
+    overflow-y: auto;
+    transform-origin: top right;
+  }
+
+  .wechat-panel::before {
+    right: 106px;
   }
 }
 

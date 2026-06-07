@@ -105,10 +105,10 @@ test("header exposes an accessible sun and moon theme icon button", async () => 
   assert.doesNotMatch(html, /data-theme-option="dark"[^>]*>\s*黑\s*<\/button>/);
   assert.doesNotMatch(html, /data-theme-option="light"[^>]*>\s*白\s*<\/button>/);
   assert.match(layoutCss, /\.theme-toggle/);
-  assert.match(layoutCss, /\.theme-toggle\s*{[^}]*width:\s*44px/s);
-  assert.match(layoutCss, /\.theme-toggle\s*{[^}]*height:\s*44px/s);
-  assert.match(layoutCss, /\.theme-toggle\s*{[^}]*border:\s*0/s);
-  assert.match(layoutCss, /\.theme-toggle\s*{[^}]*background:\s*transparent/s);
+  assert.match(layoutCss, /\.wechat-toggle,\s*\.theme-toggle,\s*\.mode-toggle\s*{[^}]*width:\s*44px/s);
+  assert.match(layoutCss, /\.wechat-toggle,\s*\.theme-toggle,\s*\.mode-toggle\s*{[^}]*height:\s*44px/s);
+  assert.match(layoutCss, /\.wechat-toggle,\s*\.theme-toggle,\s*\.mode-toggle\s*{[^}]*border:\s*0/s);
+  assert.match(layoutCss, /\.wechat-toggle,\s*\.theme-toggle,\s*\.mode-toggle\s*{[^}]*background:\s*transparent/s);
   assert.match(baseCss, /:root\[data-theme="dark"\]/);
   assert.match(baseCss, /:root\[data-theme="light"\]/);
 });
@@ -361,12 +361,42 @@ test("header and footer link to the project GitHub repository with the logo", as
   assert.match(layoutCss, /\.github-logo\s*{[^}]*width:\s*24px/s);
 });
 
+test("header exposes the local WeChat QR code beside the global controls", async () => {
+  const html = await read("index.html");
+  const layoutCss = await read("styles/layout.css");
+  const responsiveCss = await read("styles/responsive.css");
+  const moduleSource = await read("src/modules/wechatFloat.js");
+
+  await read("assets/wechat-qr.jpg");
+
+  assert.match(html, /class="wechat-contact" data-wechat-contact/);
+  assert.match(html, /class="wechat-toggle"/);
+  assert.match(html, /aria-label="显示刘亚东微信二维码"/);
+  assert.match(html, /aria-controls="wechat-panel"/);
+  assert.match(html, /id="wechat-panel" role="dialog" aria-label="刘亚东微信二维码" hidden/);
+  assert.match(html, /src="\.\/assets\/wechat-qr\.jpg"/);
+  assert.match(html, /alt="刘亚东微信二维码，扫码添加好友"/);
+  assert.doesNotMatch(html, /wechat-panel__profile/);
+  assert.doesNotMatch(html, /wechat-panel__avatar/);
+  assert.doesNotMatch(html, /src="\.\/assets\/wechat-qr\.svg"/);
+  assert.doesNotMatch(moduleSource, /qrserver\.com/);
+  assert.match(moduleSource, /querySelector\("\[data-wechat-contact\]"\)/);
+  assert.match(moduleSource, /aria-expanded/);
+  assert.match(moduleSource, /event\.key === "Escape"/);
+  assert.match(layoutCss, /\.wechat-contact\s*{[^}]*grid-column:\s*4/s);
+  assert.match(layoutCss, /\.wechat-panel\s*{[^}]*width:\s*min\(254px,\s*calc\(100vw - 40px\)\)/s);
+  assert.match(layoutCss, /\.wechat-panel__qr\s*{[^}]*aspect-ratio:\s*888 \/ 1131/s);
+  assert.match(layoutCss, /\.wechat-panel__qr\s*{[^}]*border:\s*0/s);
+  assert.match(layoutCss, /\.wechat-panel__qr\s*{[^}]*box-shadow:\s*none/s);
+  assert.match(responsiveCss, /\.wechat-panel\s*{[^}]*position:\s*fixed/s);
+});
+
 test("global interface svg icons stay on the lucide visual system", async () => {
   const html = await read("index.html");
   const baseCss = await read("styles/base.css");
   const inlineSvgTags = [...html.matchAll(/<svg\b[^>]*>/g)].map((match) => match[0]);
 
-  assert.equal(inlineSvgTags.length, 4);
+  assert.equal(inlineSvgTags.length, 5);
 
   for (const svgTag of inlineSvgTags) {
     assert.match(svgTag, /class="lucide /);
@@ -418,10 +448,11 @@ test("fullscreen header keeps the mode button anchored to the right", async () =
   const layoutCss = await read("styles/layout.css");
 
   assert.match(layoutCss, /\.site-header\s*{[^}]*display:\s*grid/s);
-  assert.match(layoutCss, /\.site-header\s*{[^}]*grid-template-columns:\s*max-content minmax\(0,\s*1fr\) max-content max-content max-content/s);
+  assert.match(layoutCss, /\.site-header\s*{[^}]*grid-template-columns:\s*max-content minmax\(0,\s*1fr\) max-content max-content max-content max-content/s);
   assert.match(layoutCss, /\.header-github\s*{[^}]*grid-column:\s*3/s);
-  assert.match(layoutCss, /\.theme-toggle\s*{[^}]*grid-column:\s*4/s);
-  assert.match(layoutCss, /\.mode-toggle\s*{[^}]*grid-column:\s*5/s);
+  assert.match(layoutCss, /\.wechat-contact\s*{[^}]*grid-column:\s*4/s);
+  assert.match(layoutCss, /\.theme-toggle\s*{[^}]*grid-column:\s*5/s);
+  assert.match(layoutCss, /\.mode-toggle\s*{[^}]*grid-column:\s*6/s);
   assert.match(layoutCss, /\.mode-toggle\s*{[^}]*justify-self:\s*end/s);
   assert.match(layoutCss, /\.mode-toggle\s*{[^}]*width:\s*44px/s);
   assert.match(layoutCss, /\.mode-toggle\s*{[^}]*height:\s*44px/s);
@@ -442,7 +473,7 @@ test("mobile header uses compact columns so controls remain in view", async () =
   const responsiveCss = await read("styles/responsive.css");
 
   assert.match(responsiveCss, /@media \(max-width:\s*680px\)/);
-  assert.match(responsiveCss, /\.site-header\s*{[^}]*grid-template-columns:\s*minmax\(72px,\s*1fr\) 44px 44px max-content/s);
+  assert.match(responsiveCss, /\.site-header\s*{[^}]*grid-template-columns:\s*minmax\(72px,\s*1fr\) repeat\(4,\s*44px\)/s);
   assert.match(responsiveCss, /\.site-header\s*{[^}]*column-gap:\s*6px/s);
   assert.match(responsiveCss, /\.brand\s*{[^}]*min-width:\s*0/s);
 });
